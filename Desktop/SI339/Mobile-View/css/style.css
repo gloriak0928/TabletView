@@ -1,0 +1,161 @@
+
+.skip a{
+    background: white;
+    left: 0;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+  }
+  .skip a {
+    position: relative;
+    top: -40px;
+  }
+  .skip a:focus {
+    top: 20px;
+  }
+  *:focus {
+    border: 2px solid;
+  }
+
+
+body, h1, h2, h3, p, ul, li, a {
+    font-family: Arial, sans-serif; /* 设置 Arial 字体 */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h2{
+    font-size: x-large;
+    text-decoration:underline rgb(82, 49, 11);
+    color: rgb(49, 30, 4);
+}
+
+h3{
+    padding-top: 3%;
+    font-size: larger;
+    color: rgb(49, 30, 4);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 800px) {
+    nav {
+        text-align: left;
+        padding: 30px 0;
+    }
+    /* .container {
+        display: grid;
+        grid-template-columns: 50px auto 500px auto 50px;
+    } */
+    /* .about, .clients, .method-image, .contact-image {
+        grid-column: 3 / span 2;
+    }
+    .method, .contact, .about-image, .clients-image {
+        grid-column: 2 / span 2;
+    } */
+  }
+
+  @media screen and (prefers-reduced-motion: reduce){
+    html{
+        scroll-behavior: auto; /* Removes scroll animation */
+    }
+  
+    .skip a{
+      -webkit-transition: none; /* sets to default setting */
+      transition: none;        /* sets to default setting */
+    }
+
+    .image-profile .gif {
+        display: none;
+    }
+
+    .photo-gallery img {
+        animation: none;
+    }
+
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+/* 导航菜单样式 */
+nav ul {
+    display: grid;
+    font-size: x-large;
+    background-color: bisque;
+    list-style-type: none;
+    grid-template-columns: repeat(8, 1fr); /* 三个宽度相等的列 */
+}
+
+nav ul li {
+    /* background-color:rgb(175, 83, 83); 非当前页面的背景颜色 */
+    padding: 10px;
+    text-align: center; /* 文本居中 */
+}
+
+nav ul li.current {
+    background-color: rgb(175, 83, 83); /* 当前页面的背景颜色 */
+    font-size:xx-large;
+}
+
+/* 宠物配置文件样式 */
+.item-profile {
+    animation: fadeIn 1s ease-in-out;
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 图片占1份，文本和列表占2份 */
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "image content"
+        "gallery gallery"; /* 定义网格区域 */
+    grid-gap: 3%;
+    margin-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 3%;
+}
+
+.item-profile img {
+    grid-area: image; /* 指定网格区域 */
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.content {
+    grid-area: content; /* 指定内容网格区域 */
+    display: flex;
+    flex-direction: column; /* 子元素垂直堆叠 */
+    gap: 10px; /* 可选：为子元素设置间隔 */
+}
+
+.item-profile ul {
+    list-style-type:decimal;
+    padding: 3%;
+}
+
+.photo-gallery {
+    grid-area: gallery; /* 指定网格区域 */
+    display: flex; /* 使用 flexbox 替代 grid */
+    height: 35vh;
+    overflow: hidden; /* 如果内容超出容器，允许滚动 */
+    gap: 10px; /* 替代 grid-gap，为 flex items 设置间距 */
+}
+
+.photo-gallery img {
+    object-fit: cover; /* 保持宽高比 */
+    width: auto; /* 宽度自动调整以保持宽高比 */
+    height: 30vh;
+    flex-shrink: 0; /* 防止 flexbox 缩小图片 */
+}
